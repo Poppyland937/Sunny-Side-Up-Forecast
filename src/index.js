@@ -55,7 +55,31 @@ function initialize() {
   fetchWeather(defaultCity);
 }
 
+function displayForecast() {
+  let days = ["Thur", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `     <div class="forecast-date">${day}</div>
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                alt=""
+                width="40"
+              />
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">18°</span>
+                <span class="forecast-temperature-min">12°</span>
+              </div>
+            `;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", submitSearch);
+
+displayForecast();
 
 window.onload = initialize;

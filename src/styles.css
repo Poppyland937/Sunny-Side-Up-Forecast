@@ -82,3 +82,20 @@ footer {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.8);
 }
+.weather-forecast {
+  margin: 10px 0;
+  text-align: center;
+  border-top: 1px solid #e8c2c1;
+  padding: 10px 0 0 0;
+}
+.forecast-date {
+  font-size: 16px;
+  color: #e8c2c1;
+  opacity: 0.9;
+}
+.forecast-temperature {
+  font-size: 14px;
+}
+.forecast-temperature-min {
+  opacity: 0.7;
+}

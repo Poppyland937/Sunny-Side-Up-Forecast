@@ -83,7 +83,7 @@ footer {
   color: rgba(0, 0, 0, 0.8);
 }
 .weather-forecast {
-  margin: 10px 0;
+  margin: 28px 0;
   border-top: 1px solid #aef361;
   padding: 10px 0 0 0;
   display: flex;
@@ -92,7 +92,7 @@ footer {
 .forecast-date {
   font-size: 18px;
   opacity: 0.9;
-  font-weight: bold;
+  margin-left: 22px;
 }
 .forecast-temperature {
   font-size: 15px;
@@ -105,4 +105,10 @@ footer {
 .forecast-temperature-min {
   opacity: 0.7;
   padding: 0 15px;
+}
+.forecast-icon {
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;
 }

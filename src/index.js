@@ -28,6 +28,8 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windElement.innerHTML = `${response.data.wind.speed}Km/h`;
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -55,7 +57,13 @@ function initialize() {
   fetchWeather(defaultCity);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "c48264o7b5ff7a9343004et42e6b4c41";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let days = ["Thur", "Fri", "Sat", "Sun", "Mon"];
   let forecastHtml = "";
 
@@ -63,18 +71,18 @@ function displayForecast() {
     forecastHtml =
       forecastHtml +
       `   
-      <div class="weather-forecast">
-      <div class="forecast-date">${day}</div>
-              <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-                alt=""
-                width="40"
-              />
-              <div class="forecast-temperature">
-                <span class="forecast-temperature-max">18°</span>
-                <span class="forecast-temperature-min">12°</span>
-              </div>
-              </div>
+    <div class="weather-forecast-day">
+        <div class="forecast-date">${day}</div>
+        <div class="forecast-icon">🌤️</div>
+        <div class="forecast-temperature">
+          <div class="forecast-temperature-max">
+            <strong>15º</strong>
+          </div>
+          <div class="forecast-temperature-min">9º</div>
+        </div>
+      </div>
+      
+             
             `;
   });
   let forecastElement = document.querySelector("#forecast");
@@ -82,7 +90,6 @@ function displayForecast() {
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", submitSearch);
-
 displayForecast();
 
 window.onload = initialize;

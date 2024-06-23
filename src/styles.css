@@ -86,16 +86,23 @@ footer {
   margin: 10px 0;
   border-top: 1px solid #aef361;
   padding: 10px 0 0 0;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 .forecast-date {
-  font-size: 16px;
-  color: #aef361;
+  font-size: 18px;
   opacity: 0.9;
+  font-weight: bold;
 }
 .forecast-temperature {
-  font-size: 14px;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  color: #aef361;
 }
 .forecast-temperature-min {
   opacity: 0.7;
+  padding: 0 15px;
 }
